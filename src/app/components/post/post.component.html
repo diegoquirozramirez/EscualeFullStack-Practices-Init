@@ -1,0 +1,31 @@
+<p>En el componente Post!</p>
+<button class="btn btn-warning" (click)="redirectUsuario()">Ir Usuario</button>
+
+<form *ngIf="!isEdit" #formPost="ngForm" (ngSubmit)="sendPost()">
+    <p><span> Name: </span><input type="text"  name="name" #name="ngModel" [(ngModel)]="post.name"></p>
+    <p><span> Description: </span><input type="text" name="description" #description="ngModel" [(ngModel)]="post.description"></p>
+    <p><input type="submit" class="btn btn-primary" value="ENVIAR"></p>
+</form>
+
+<form *ngIf="isEdit" #formPost="ngForm" (ngSubmit)="updatePost(post.id)">
+    <p><span> Name: </span><input type="text"  name="name" #name="ngModel" [(ngModel)]="post.name"></p>
+    <p><span> Description: </span><input type="text" name="description" #description="ngModel" [(ngModel)]="post.description"></p>
+    <p><input type="submit" class="btn btn-primary" value="ACTUALIZAR"> 
+        <button  class="btn btn-danger" (click)="cancelar()" >CANCELAR</button>
+    </p>
+</form>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-6" *ngFor="let post of posts">
+            <ul>
+                <li>{{post.name}}</li>
+                <li>{{post.description}}</li>
+                <li>{{post.date}}</li>
+                <li><button class="btn btn-success" (click)="getOne(post.id)">EDITAR</button> 
+                    <button class="btn btn-danger" (click)="deletePost(post.id)">ELIMINAR</button></li>
+            </ul>
+        </div>
+    </div>
+</div>

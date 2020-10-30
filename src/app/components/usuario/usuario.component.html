@@ -1,0 +1,144 @@
+<p>Estamos en el componente de usuarios!</p>
+
+<button class="btn btn-primary" (click)="redirect()" >Ir POST</button>
+
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <div class="formulario">
+        <form (ngSubmit)="sendUsuario()" [formGroup]="angForm" novalidate>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Nombres</label>
+                <input  type="text" (ngModelChange)="onChange()" name="nombre" formControlName="nombre" class="form-control" [(ngModel)]="usuario.nombre"  aria-describedby="emailHelp" placeholder="Nombres">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                <div
+                  class="alert alert-danger" 
+                  *ngIf="angForm.controls.nombre.invalid && ( angForm.controls.nombre.dirty || angForm.controls.nombre.touched )"
+                >
+                  <div 
+                    *ngIf="angForm.controls.nombre.errors.required"
+                  >
+                     Nombre es requerido
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Apellidos</label>
+                <input type="text" (ngModelChange)="onChange()" name="apellido" formControlName="apellido" class="form-control"  [(ngModel)]="usuario.apellido"  aria-describedby="emailHelp" placeholder="Apellidos">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                <div
+                  class="alert alert-danger" 
+                  *ngIf="angForm.controls.apellido.invalid && ( angForm.controls.apellido.dirty || angForm.controls.apellido.touched )"
+                >
+                  <div 
+                    *ngIf="angForm.controls.apellido.errors.required"
+                  >
+                    Apellido es requerido
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Edad</label>
+                <input type="text" (ngModelChange)="onChange()" name="edad"  formControlName="edad"class="form-control" [(ngModel)]="usuario.edad"  placeholder="Edad">
+                <div
+                  class="alert alert-danger" 
+                  *ngIf="angForm.controls.edad.invalid && ( angForm.controls.edad.dirty || angForm.controls.edad.touched )"
+                >
+                  <div 
+                    *ngIf="angForm.controls.edad.errors.required"
+                  >
+                    Edad es requerido
+                  </div>
+                </div>
+              </div>
+
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email</label>
+              <input type="email" (ngModelChange)="onChange()"  name="email" formControlName="email"  class="form-control" [(ngModel)]="usuario.email"  aria-describedby="emailHelp" placeholder="Email">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              <div
+                  class="alert alert-danger" 
+                  *ngIf="angForm.controls.email.invalid && ( angForm.controls.email.dirty || angForm.controls.email.touched )"
+                >
+                  <div 
+                    *ngIf="angForm.controls.email.errors.required"
+                  >
+                    Email es requerido
+                  </div>
+                </div>
+            </div>
+            
+            <button type="submit" [disabled]="isDirty" class="btn btn-primary form-control">Enviar</button>
+          </form>
+    </div>
+    </div>
+
+    <div class="col-6">
+      <div class="formulario">
+        <form (ngSubmit)="sendUsuario()" [formGroup]="angForm" novalidate>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Nombres</label>
+                <input type="text" name="nombre" formControlName="nombre" class="form-control" [(ngModel)]="usuario.nombre"  aria-describedby="emailHelp" placeholder="Nombres">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                <div
+                  class="alert alert-danger" 
+                  *ngIf="angForm.controls.nombre.invalid && ( angForm.controls.nombre.dirty || angForm.controls.nombre.touched )"
+                >
+                  <div 
+                    *ngIf="angForm.controls.nombre.errors.required"
+                  >
+                     Nombre es requerido
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Apellidos</label>
+                <input type="text"  name="apellido" formControlName="apellido" class="form-control"  [(ngModel)]="usuario.apellido"  aria-describedby="emailHelp" placeholder="Apellidos">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                <div
+                  class="alert alert-danger" 
+                  *ngIf="angForm.controls.apellido.invalid && ( angForm.controls.apellido.dirty || angForm.controls.apellido.touched )"
+                >
+                  <div 
+                    *ngIf="angForm.controls.apellido.errors.required"
+                  >
+                    Apellido es requerido
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Edad</label>
+                <input type="text" name="edad"  formControlName="edad"class="form-control" [(ngModel)]="usuario.edad"  placeholder="Edad">
+                <div
+                  class="alert alert-danger" 
+                  *ngIf="angForm.controls.edad.invalid && ( angForm.controls.edad.dirty || angForm.controls.edad.touched )"
+                >
+                  <div 
+                    *ngIf="angForm.controls.edad.errors.required"
+                  >
+                    Edad es requerido
+                  </div>
+                </div>
+              </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email</label>
+              <input type="email" name="email" formControlName="email"  class="form-control" [(ngModel)]="usuario.email"  aria-describedby="emailHelp" placeholder="Email">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              <div
+                  class="alert alert-danger" 
+                  *ngIf="angForm.controls.email.invalid && ( angForm.controls.email.dirty || angForm.controls.email.touched )"
+                >
+                  <div 
+                    *ngIf="angForm.controls.email.errors.required"
+                  >
+                    Email es requerido
+                  </div>
+                </div>
+            </div>
+            
+            <button type="submit" class="btn btn-primary form-control">Enviar</button>
+          </form>
+    </div>
+    </div>
+  </div>
+</div>
